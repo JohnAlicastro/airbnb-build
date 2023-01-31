@@ -7,7 +7,7 @@ import { Banner } from '../components/Banner';
 
 // const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home({ exploreData }) {
   return (
     <div className=''>
       <Head>
@@ -27,8 +27,14 @@ export default function Home() {
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
 
           {/* Pull data from server - API endpoints */}
+          {exploreData}
         </section>
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const exploreData = await fetch('https://links.papareact.com/pyp').then((res) => res.json());
+  return { props: { exploreData } };
 }
