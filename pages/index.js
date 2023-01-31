@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Header } from '../components/Header';
 import { Banner } from '../components/Banner';
 import { SmallCard } from '../components/SmallCard';
+import { MediumCard } from '../components/MediumCard';
 
 // import Image from 'next/image';
 // import { Inter } from '@next/font/google';
@@ -30,7 +31,7 @@ export default function Home({ exploreData, cardsData }) {
 
           {/* below we are destructuring the exploreData props passed into Home func above */}
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-            {exploreData.map(({ img, distance, location }) => (
+            {exploreData?.map(({ img, distance, location }) => (
               <SmallCard key={img} img={img} distance={distance} location={location} />
             ))}
           </div>
@@ -39,6 +40,13 @@ export default function Home({ exploreData, cardsData }) {
         {/* MediumCard section */}
         <section>
           <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
+
+          {/* below we are destructuring the cardsData props passed into Home func above */}
+          <div>
+            {cardsData?.map(({ img, title }) => (
+              <MediumCard key={img} img={img} title={title} />
+            ))}
+          </div>
         </section>
       </main>
     </div>
