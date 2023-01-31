@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import Head from 'next/head';
 import { Header } from '../components/Header';
 import { Banner } from '../components/Banner';
@@ -27,7 +28,9 @@ export default function Home({ exploreData }) {
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
 
           {/* Pull data from server - API endpoints */}
-          {exploreData}
+          {exploreData?.map((item) => (
+            <h1>{item.location}</h1>
+          ))}
         </section>
       </main>
     </div>
@@ -35,6 +38,6 @@ export default function Home({ exploreData }) {
 }
 
 export async function getStaticProps() {
-  const exploreData = await fetch('https://links.papareact.com/pyp').then((res) => res.json());
+  const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then((res) => res.json());
   return { props: { exploreData } };
 }
