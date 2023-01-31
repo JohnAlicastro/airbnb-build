@@ -29,8 +29,8 @@ export default function Home({ exploreData }) {
 
           {/* Pull data from server - API endpoints */}
           {/* below we are destructuring the props passed into Home func above */}
-          {exploreData?.map(({ image, distance, location }) => (
-            <SmallCard key={image} img={image} distance={distance} location={location} />
+          {exploreData.map(({ img, distance, location }) => (
+            <SmallCard key={img} img={img} distance={distance} location={location} />
           ))}
         </section>
       </main>
