@@ -2,6 +2,8 @@
 import Head from 'next/head';
 import { Header } from '../components/Header';
 import { Banner } from '../components/Banner';
+import { SmallCard } from '../components/SmallCard';
+
 // import Image from 'next/image';
 // import { Inter } from '@next/font/google';
 // import styles from '@/styles/Home.module.css';
@@ -18,8 +20,6 @@ export default function Home({ exploreData }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      {/* <h1 className='text-3xl font-bold underline'>Hello world!</h1> */}
-
       <Header />
       <Banner />
 
@@ -28,8 +28,9 @@ export default function Home({ exploreData }) {
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
 
           {/* Pull data from server - API endpoints */}
-          {exploreData?.map((item) => (
-            <h1>{item.location}</h1>
+          {/* below we are destructuring the props passed into Home func above */}
+          {exploreData?.map(({ image, distance, location }) => (
+            <SmallCard key={image} img={image} distance={distance} location={location} />
           ))}
         </section>
       </main>
@@ -37,6 +38,7 @@ export default function Home({ exploreData }) {
   );
 }
 
+// getting static props and sending into Home function above
 export async function getStaticProps() {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then((res) => res.json());
   return { props: { exploreData } };
