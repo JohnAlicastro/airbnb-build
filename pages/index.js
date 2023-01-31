@@ -42,7 +42,7 @@ export default function Home({ exploreData, cardsData }) {
           <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
 
           {/* below we are destructuring the cardsData props passed into Home func above */}
-          <div>
+          <div className='flex space-x-3 overflow-scroll'>
             {cardsData?.map(({ img, title }) => (
               <MediumCard key={img} img={img} title={title} />
             ))}
