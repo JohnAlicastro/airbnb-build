@@ -5,6 +5,7 @@ import { Banner } from '../components/Banner';
 import { SmallCard } from '../components/SmallCard';
 import { MediumCard } from '../components/MediumCard';
 import { LargeCard } from '../components/LargeCard';
+import { Footer } from '../components/Footer';
 
 // import Image from 'next/image';
 // import { Inter } from '@next/font/google';
@@ -58,6 +59,8 @@ export default function Home({ exploreData, cardsData }) {
           buttonText='Get Inspired'
         />
       </main>
+
+      <Footer />
     </div>
   );
 }
