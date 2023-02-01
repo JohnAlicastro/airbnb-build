@@ -55,8 +55,9 @@ export default function Home({ exploreData, cardsData }) {
 
 // getting static props and sending into Home function above
 export async function getStaticProps() {
+  // smallcard
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then((res) => res.json());
-
+  // medium card
   const cardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').then((res) => res.json());
 
   return { props: { exploreData, cardsData } };
