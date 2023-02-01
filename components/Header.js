@@ -10,10 +10,15 @@ export const Header = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
+  const handleSelect = (ranges) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
+
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
-    key: 'Selection',
+    key: 'selection',
   };
 
   return (
@@ -56,7 +61,7 @@ export const Header = () => {
       {/* Calendar */}
       {searchInput && (
         <div>
-          <DateRangePicker ranges={[selectionRange]} />
+          <DateRangePicker ranges={[selectionRange]} minDate={new Date()} rangeColors={['#FD5B61']} onChange={handleSelect} />
         </div>
       )}
     </header>
