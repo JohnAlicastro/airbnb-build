@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const LargeCard = () => {
+export const LargeCard = ({ img, title, description, buttonText }) => {
   return <div>LargeCard</div>;
 };
 
