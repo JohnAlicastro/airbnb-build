@@ -42,7 +42,7 @@ export default function Home({ exploreData, cardsData }) {
           <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
 
           {/* below we are destructuring the cardsData props passed into Home func above */}
-          <div className='flex space-x-3 overflow-scroll'>
+          <div className='flex space-x-3 overflow-scroll scrollbar-hide'>
             {cardsData?.map(({ img, title }) => (
               <MediumCard key={img} img={img} title={title} />
             ))}
@@ -58,6 +58,6 @@ export async function getStaticProps() {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then((res) => res.json());
 
   const cardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').then((res) => res.json());
-  
+
   return { props: { exploreData, cardsData } };
 }
