@@ -16,6 +16,10 @@ export const Header = () => {
     setEndDate(ranges.selection.endDate);
   };
 
+  const resetSearchInput = () => {
+    setSearchInput('');
+  };
+
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
@@ -75,7 +79,9 @@ export const Header = () => {
             />
           </div>
           <div className='flex'>
-            <button className='flex-grow text-gray-500'>Cancel</button>
+            <button onClick={resetSearchInput} className='flex-grow text-gray-500'>
+              Cancel
+            </button>
             <button className='flex-grow text-red-400'>Search</button>
           </div>
         </div>
