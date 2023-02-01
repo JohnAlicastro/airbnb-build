@@ -4,6 +4,7 @@ import { Header } from '../components/Header';
 import { Banner } from '../components/Banner';
 import { SmallCard } from '../components/SmallCard';
 import { MediumCard } from '../components/MediumCard';
+import { LargeCard } from '../components/LargeCard';
 
 // import Image from 'next/image';
 // import { Inter } from '@next/font/google';
@@ -48,6 +49,11 @@ export default function Home({ exploreData, cardsData }) {
             ))}
           </div>
         </section>
+
+        {/* LargeCard section */}
+        <section>
+          <LargeCard />
+        </section>
       </main>
     </div>
   );
@@ -55,9 +61,8 @@ export default function Home({ exploreData, cardsData }) {
 
 // getting static props and sending into Home function above
 export async function getStaticProps() {
-  // smallcard
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then((res) => res.json());
-  // medium card
+
   const cardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').then((res) => res.json());
 
   return { props: { exploreData, cardsData } };
