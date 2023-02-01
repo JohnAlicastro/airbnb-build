@@ -59,6 +59,6 @@ export async function getStaticProps() {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').then((res) => res.json());
   // MediumCard
   const cardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').then((res) => res.json());
-
+  // Return
   return { props: { exploreData, cardsData } };
 }
