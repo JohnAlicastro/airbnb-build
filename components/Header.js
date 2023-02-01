@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { MagnifyingGlassIcon, GlobeAltIcon, Bars3Icon, UserCircleIcon, UserIcon } from '@heroicons/react/24/solid';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRangePicker } from 'react-date-range';
 
 export const Header = () => {
   const [searchInput, setSearchInput] = useState('');
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: 'Selection',
+  };
 
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md py-5 px-5 md:px-10'>
@@ -41,6 +52,13 @@ export const Header = () => {
           <UserCircleIcon className='h-6' />
         </div>
       </div>
+
+      {/* Calendar */}
+      {searchInput && (
+        <div>
+          <DateRangePicker ranges={[selectionRange]} />
+        </div>
+      )}
     </header>
   );
 };
