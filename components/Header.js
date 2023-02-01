@@ -73,10 +73,10 @@ export const Header = () => {
               min={1}
               className='w-12 pl-2 text-lg outline-none text-red-400'
             />
-            <div>
-              <button></button>
-              <button></button>
-            </div>
+          </div>
+          <div className='flex'>
+            <button className='flex-grow text-gray-500'>Cancel</button>
+            <button className='flex-grow text-red-400'>Search</button>
           </div>
         </div>
       )}
