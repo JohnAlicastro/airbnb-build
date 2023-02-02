@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { MagnifyingGlassIcon, GlobeAltIcon, Bars3Icon, UserCircleIcon, UserIcon } from '@heroicons/react/24/solid';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -10,6 +11,7 @@ export const Header = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const router = useRouter();
 
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
@@ -29,7 +31,7 @@ export const Header = () => {
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md py-5 px-5 md:px-10'>
       {/* Left - Logo */}
-      <div className='relative flex items-center h-10 cursor-pointer my-auto '>
+      <div onClick={() => router.push('/')} className='relative flex items-center h-10 cursor-pointer my-auto '>
         <Image
           src='https://links.papareact.com/qd3'
           fill
