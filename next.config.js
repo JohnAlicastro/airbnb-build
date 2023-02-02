@@ -4,9 +4,9 @@ const nextConfig = {
   images: {
     domains: ['links.papareact.com', 'a0.muscache.com'],
   },
-  // env: {
-  //   mapbox_key: 'pk.eyJ1IjoiamFsaWNhc3RybyIsImEiOiJjbGRub29maDUwZnVyM29vNDA5c2c2bm1wIn0.5tGSQ3aS-Pkg0KHPMT6ZkQ',
-  // },
+  env: {
+    MAPBOX_KEY: process.env.MAPBOX_KEY,
+  },
 };
 
 module.exports = nextConfig;

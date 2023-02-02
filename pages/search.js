@@ -47,7 +47,7 @@ const Search = ({ searchResults }) => {
           </div>
         </section>
 
-        <section className='hidden lg:inline-flex'>
+        <section className='hidden lg:inline-flex lg:min-w-[600px]'>
           <MapDisplay />
         </section>
       </main>
