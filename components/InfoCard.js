@@ -18,7 +18,9 @@ export const InfoCard = ({ img, location, title, description, star, price, total
 
         <h4 className='text-xl'>{title}</h4>
 
-        <div className='border-b w-10 pt-2' />
+        <div className='border-b w-10 pt-2'/>
+
+        <p className='pt-2 text-sm text-gray-500 flex-grow'>{description}</p>
       </div>
     </div>
   );
