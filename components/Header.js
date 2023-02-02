@@ -18,8 +18,11 @@ export const Header = ({ placeholder }) => {
     setEndDate(ranges.selection.endDate);
   };
 
-  const resetSearchInput = () => {
+  const resetAllSearchInput = () => {
     setSearchInput('');
+    setStartDate(new Date());
+    setEndDate(new Date());
+    setNumberOfGuests(1);
   };
 
   const submitSearch = () => {
@@ -93,10 +96,16 @@ export const Header = ({ placeholder }) => {
             />
           </div>
           <div className='flex'>
-            <button onClick={resetSearchInput} className='flex-grow text-gray-500'>
+            <button onClick={resetAllSearchInput} className='flex-grow text-gray-500'>
               Cancel
             </button>
-            <button onClick={submitSearch} className='flex-grow text-red-400'>
+            <button
+              onClick={() => {
+                submitSearch();
+                resetAllSearchInput();
+              }}
+              className='flex-grow text-red-400'
+            >
               Search
             </button>
           </div>
