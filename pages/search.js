@@ -7,8 +7,6 @@ import { format } from 'date-fns';
 const Search = ({ searchResults }) => {
   const router = useRouter();
 
-  console.log(searchResults);
-
   const { location, startDate, endDate, numberOfGuests } = router.query;
 
   useEffect(() => {
@@ -39,6 +37,11 @@ const Search = ({ searchResults }) => {
             <p className='searchPageButton'>Rooms and Beds</p>
             <p className='searchPageButton'>More filters</p>
           </div>
+
+          {/* {searchResults.map(item => (
+
+          ))} */}
+
         </section>
       </main>
 
