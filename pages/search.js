@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { useRouter } from 'next/router';
@@ -9,8 +9,14 @@ const Search = () => {
 
   const { location, startDate, endDate, numberOfGuests } = router.query;
 
-  const formattedStartDate = format(new Date(startDate), 'MMMM dd yyyy');
-  const formattedEndDate = format(new Date(endDate), 'MMMM dd yyyy');
+  useEffect(() => {
+    if (!(location || startDate || endDate || numberOfGuests)) {
+      router.push('/');
+    }
+  });
+
+  const formattedStartDate = format(new Date(startDate || new Date()), 'MMMM dd yyyy');
+  const formattedEndDate = format(new Date(endDate || new Date()), 'MMMM dd yyyy');
   const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
 
   return (
