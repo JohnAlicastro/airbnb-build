@@ -4,8 +4,10 @@ import { Footer } from '../components/Footer';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 
-const Search = ({ searchresults }) => {
+const Search = ({ searchResults }) => {
   const router = useRouter();
+
+  console.log(searchResults);
 
   const { location, startDate, endDate, numberOfGuests } = router.query;
 
@@ -57,9 +59,9 @@ but here we are calling an API with static results so there is no need */
 
 // getting server side props and sending into Search func above
 export async function getServerSideProps() {
-  const searchresults = await fetch('https://links.papareact.com/isz').then((res) => res.json());
+  const searchResults = await fetch('https://www.jsonkeeper.com/b/5NPS').then((res) => res.json());
 
   return {
-    props: { searchresults },
+    props: { searchResults },
   };
 }
