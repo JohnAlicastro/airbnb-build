@@ -22,15 +22,16 @@ export const InfoCard = ({ img, location, title, description, star, price, total
 
         <p className='pt-2 text-sm text-gray-500 flex-grow'>{description}</p>
 
-        <div>
+        <div className='flex justify-between items-end pt-5'>
           <p className='flex items-center'>
             <StarIcon className='h-5 text-red-400' />
             {star}
           </p>
 
           <div>
-            <p></p>
-            <p></p>
+            <p className='text-lg lg:text-2xl font-semibold pb-2'>{price}</p>
+
+            <p className='text-right font-extralight '>{total}</p>
           </div>
         </div>
       </div>
