@@ -26,13 +26,13 @@ const Search = ({ searchResults }) => {
       <Header placeholder={`${location} | ${dateRange} | ${numberOfGuests} guests`} />
 
       <main className='flex'>
-        <section className='flex-grow pt-14 px-6'>
+        <section className='flex-grow px-6 pt-14'>
           <p className='text-xs'>
             300+ Stays | {dateRange} | for {numberOfGuests} guests
           </p>
-          <h1 className='text-3xl font-semibold mt-2 mb-6'>Stays in {location}</h1>
+          <h1 className='mt-2 mb-6 text-3xl font-semibold'>Stays in {location}</h1>
 
-          <div className='hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap'>
+          <div className='mb-5 hidden space-x-3 whitespace-nowrap text-gray-800 lg:inline-flex'>
             <p className='searchPageButton'>Cancellation Flexibility</p>
             <p className='searchPageButton'>Type of Place</p>
             <p className='searchPageButton'>Price</p>
@@ -47,7 +47,7 @@ const Search = ({ searchResults }) => {
           </div>
         </section>
 
-        <section className='hidden lg:inline-flex lg:min-w-[40%] sticky top-[76px] h-[calc(100vh-76px)]'>
+        <section className='sticky top-[76px] hidden h-[calc(100vh-76px)] lg:inline-flex lg:min-w-[40%]'>
           <MapDisplay searchResults={searchResults} />
         </section>
       </main>

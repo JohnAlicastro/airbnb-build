@@ -35,7 +35,7 @@ export const MapDisplay = ({ searchResults }) => {
       {searchResults.map((result) => (
         <div key={result.long}>
           <Marker longitude={result.long} latitude={result.lat} offsetLeft={-20} offsetTop={-10}>
-            <p onClick={() => setSelectedLocation(result)} className='cursor-pointer text-3xl animate-bounce' aria-label='push-pin' role='img'>
+            <p onClick={() => setSelectedLocation(result)} className='animate-bounce cursor-pointer text-3xl' aria-label='push-pin' role='img'>
               📍
             </p>
           </Marker>
