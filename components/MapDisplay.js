@@ -26,12 +26,7 @@ export const MapDisplay = ({ searchResults }) => {
   const [selectedLocation, setSelectedLocation] = useState({});
 
   return (
-    <Map
-      mapStyle='mapbox://styles/jalicastro/cldnstyqj009701obkqfjv7y2'
-      mapboxAccessToken={process.env.MAPBOX_KEY}
-      {...viewState}
-      onMove={(evt) => setViewState(evt.viewState)}
-    >
+    <Map mapStyle={process.env.MAPBOX_STYLE} mapboxAccessToken={process.env.MAPBOX_KEY} {...viewState} onMove={(evt) => setViewState(evt.viewState)}>
       {searchResults.map((result) => (
         <div key={result.long}>
           <Marker longitude={result.long} latitude={result.lat} offsetLeft={-20} offsetTop={-10}>
