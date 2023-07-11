@@ -8,7 +8,6 @@ import { MapDisplay } from '../components/MapDisplay';
 
 const Search = ({ searchResults }) => {
   const router = useRouter();
-
   const { location, startDate, endDate, numberOfGuests } = router.query;
 
   useEffect(() => {
@@ -59,19 +58,7 @@ const Search = ({ searchResults }) => {
 
 export default Search;
 
-{
-  /* we would usually use 'context' as a param in getServerSideProps
-so that we could access the query params in Search above (location, startDate, etc...) and use them,
-but here we are calling an API with static results so there is no need */
-}
-
-// export async function getServerSideProps(context) {... code here}
-
-// getting server side props and sending into Search func above
 export async function getServerSideProps() {
   const searchResults = await fetch('https://www.jsonkeeper.com/b/5NPS').then((res) => res.json());
-
-  return {
-    props: { searchResults },
-  };
+  return { props: { searchResults } };
 }
