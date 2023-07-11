@@ -47,14 +47,7 @@ export const Header = ({ placeholder }) => {
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white py-5 px-5 shadow-md md:px-10'>
       {/* Left - Logo */}
       <div onClick={() => router.push('/')} className='relative my-auto flex h-10 cursor-pointer items-center '>
-        <Image
-          src='https://links.papareact.com/qd3'
-          fill
-          // objectFit='contain'
-          // objectPosition='left'
-          style={{ objectFit: 'contain', objectPosition: 'left' }}
-          alt=''
-        />
+        <Image src='https://links.papareact.com/qd3' fill style={{ objectFit: 'contain', objectPosition: 'left' }} alt='' />
       </div>
 
       {/* Middle - Search */}

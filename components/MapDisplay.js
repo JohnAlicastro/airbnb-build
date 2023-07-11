@@ -40,9 +40,9 @@ export const MapDisplay = ({ searchResults }) => {
             </p>
           </Marker>
 
-          {/* the popup that will show if we click on marker */}
+          {/* popup if a marker is clicked */}
           {selectedLocation.long === result.long ? (
-            <Popup onClose={() => setSelectedLocation({})} closeOnClick={true} latitude={result.lat} longitude={result.long}>
+            <Popup onClose={() => setSelectedLocation({})} closeOnClick={false} latitude={result.lat} longitude={result.long}>
               {result.title}
             </Popup>
           ) : (
